@@ -1,0 +1,263 @@
+/* Base styles */
+body {
+  font-family: 'Noto Sans Telugu', 'Noto Sans', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.telugu-wordle {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+h1 {
+  font-size: 28px;
+  color: #1e293b;
+  margin: 0;
+}
+
+button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+.message {
+  background-color: #f8fafc;
+  border-left: 4px solid #3b82f6;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #334155;
+}
+
+/* Game board styles */
+.game-board {
+  margin-bottom: 30px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border: 2px solid #d1d5db;
+  margin: 0 5px;
+  border-radius: 8px;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.cell.empty {
+  background-color: #ffffff;
+}
+
+.cell.filled {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.cell.correct {
+  background-color: #10b981;
+  border-color: #10b981;
+  color: white;
+  animation: flip 0.5s;
+}
+
+.cell.present {
+  background-color: #f59e0b;
+  border-color: #f59e0b;
+  color: white;
+  animation: flip 0.5s;
+}
+
+.cell.absent {
+  background-color: #6b7280;
+  border-color: #6b7280;
+  color: white;
+  animation: flip 0.5s;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+/* Keyboard styles */
+.keyboard {
+  padding: 15px;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.keyboard-section {
+  margin-bottom: 15px;
+}
+
+.keyboard-section h3 {
+  font-size: 16px;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.key-row, .key-grid, .vowel-sign-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.key-grid button, .vowel-sign-grid button {
+  width: 45px;
+  height: 45px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #334155;
+  transition: all 0.2s;
+}
+
+.key-grid button:hover, .vowel-sign-grid button:hover {
+  background-color: #e2e8f0;
+}
+
+.key-grid button.correct, .vowel-sign-grid button.correct {
+  background-color: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.key-grid button.present, .vowel-sign-grid button.present {
+  background-color: #f59e0b;
+  color: white;
+  border-color: #f59e0b;
+}
+
+.key-grid button.absent, .vowel-sign-grid button.absent {
+  background-color: #6b7280;
+  color: white;
+  border-color: #6b7280;
+}
+
+.grapheme-selection {
+  background-color: #e2e8f0;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #cbd5e1;
+}
+
+.grapheme-selection h3 {
+  font-size: 16px;
+  color: #475569;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.control-keys {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.control-keys button {
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 48%;
+}
+
+/* Game over screen */
+.game-over {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.game-over p {
+  font-size: 18px;
+  color: #334155;
+  margin-bottom: 20px;
+}
+
+.game-over button {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .cell {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .key-grid button, .vowel-sign-grid button {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .cell {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  
+  .key-grid button, .vowel-sign-grid button {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
