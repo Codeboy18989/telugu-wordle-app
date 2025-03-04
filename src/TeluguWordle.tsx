@@ -78,7 +78,7 @@ const TeluguWordle: React.FC = () => {
   const [gameBoard, setGameBoard] = useState<Cell[][]>([]);
   const [gameStatus, setGameStatus] = useState<'playing' | 'won' | 'lost'>('playing');
   const [message, setMessage] = useState<string>('');
-  const [showKeyboard, setShowKeyboard] = useState<boolean>(true);
+  // Removed unused setShowKeyboard since the keyboard is always shown during gameplay
   const [usedLetters, setUsedLetters] = useState<Record<string, CellState>>({});
   const [showGraphemeSelection, setShowGraphemeSelection] = useState<boolean>(false);
   const [selectedConsonant, setSelectedConsonant] = useState<string>('');
@@ -264,7 +264,7 @@ const TeluguWordle: React.FC = () => {
         ))}
       </div>
       
-      {showKeyboard && gameStatus === 'playing' && (
+      {gameStatus === 'playing' && (
         <div className="keyboard">
           <div className="keyboard-section">
             <h3>అచ్చులు (Vowels)</h3>
